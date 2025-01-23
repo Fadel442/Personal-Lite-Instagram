@@ -1,4 +1,4 @@
-<div class="flex flex-col h-screen w-64 pt-5 bg-gray-800 text-white fixed">
+<div class="flex flex-col h-screen w-64 pt-5 bg-black text-white fixed">
     {{-- <div class="p-4 text-lg font-bold border-b border-gray-700">Lightgram</div> --}}
     <a href="{{ route('homepage') }}" class="btn btn-ghost  text-lg font-bold flex justify-start"> LightGram</a>
     <div class="border-b border-gray-700"></div>
