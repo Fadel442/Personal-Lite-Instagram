@@ -38,7 +38,7 @@ class AuthController extends Controller
 
             // Langsung login user setelah registrasi
             Auth::login($user); 
-            return redirect()->intended('/profile'); // Redirect ke halaman profile
+            return redirect()->intended('/homepage'); // Redirect ke halaman profile
         }
 
         return redirect()->back()->with('error', 'User creation failed');

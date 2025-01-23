@@ -2,20 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Feeds;
-use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use Illuminate\Support\Facades\Storage;
-
+use App\Models\Feeds;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProfilesController extends Controller
 {
     public function index()
-    {
-        $user = Auth::user(); // Ambil data user yang sedang login
-        return view('profiles.profile', compact('user')); 
-    }
+{
+    $user = Auth::user();
+    $profileFeed = DB::table('feeds')
+    ->where('user_id', $user->id)
+    ->where('file_type', 'image')
+    ->pluck('file_path');// Ambil path gambar dari feed
+    return view('profiles.profile', compact('user', 'profileFeed')); // Kirim data $profileFeed ke view
+}
 
     public function login()
     {

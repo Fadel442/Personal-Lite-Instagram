@@ -54,6 +54,6 @@ class FeedsController extends Controller
             $feed->save();
         }
 
-        return redirect()->route('homepage')->with('success', 'Feed added successfully!');
+        return redirect()->route('profile')->with('success', 'Feed added successfully!');
     }
 }
