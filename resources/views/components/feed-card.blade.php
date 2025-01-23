@@ -1,20 +1,18 @@
 <div class="w-[600px] p-4 bg-white rounded-lg shadow-lg border-2 border-black text-black">
     <div class="flex items-center mb-4">
         <div class="w-10 h-10 bg-gray-400 rounded-full">
-            {{--  Tampilkan gambar profil user jika ada --}}
             @if ($feed->user->profile_img)
                 <img src="{{ asset('storage/' . $feed->user->profile_img) }}" alt="Profile Image" class="w-full h-full rounded-full object-cover">
             @endif
         </div>
-        <h3 class="ml-3 font-bold">{{ $feed->user->username }}</h3> 
+        <h3 class="ml-3 font-bold">{{ $feed->user->profile->username }}</h3> 
     </div>
 
     <div class="w-full h-[300px] bg-gray-300 rounded mb-4">
-        {{--  Tampilkan gambar/video feed  --}}
         @if ($feed->file_type === 'image')
-            <img src="{{ asset('storage/' . $feed->file_path) }}" alt="Feed Image" class="w-full h-full rounded object-cover"> 
+            <img src="{{ asset($feed->file_path) }}" alt="Feed Image" class="w-full h-full rounded object-cover">  
         @elseif ($feed->file_type === 'video')
-            <video src="{{ asset('storage/' . $feed->file_path) }}" controls class="w-full h-full rounded object-cover"></video>
+            <video src="{{ asset($feed->file_path) }}" controls class="w-full h-full rounded object-cover"></video> 
         @endif
     </div>
 
@@ -32,7 +30,7 @@
             </button>
         </div>
     </div>
-    <h3 class="font-bold">{{ $feed->user->username }}</h3> 
+    <h3 class="font-bold">{{ $feed->user->profile->username }}</h3> 
     <p class="text-sm">{{ $feed->caption }}</p> 
     <p class="text-sm mt-2">{{ $feed->created_at->format('d F Y') }}</p> 
 

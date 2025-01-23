@@ -13,7 +13,7 @@
                 <div>
                     <div class="flex ml-28">
                         <div>
-                            <h2 class="text-xl font-bold mt-3">{{ $user->username }}</h2>
+                            <h2 class="text-xl font-bold mt-3">{{ $user->profile->username }}</h2>
                         </div>
                         <div class="ml-10">
                             <a href="{{ route('profile-edit') }}">
@@ -26,13 +26,13 @@
                     </div>
                     <div class="ml-28">
                         <div class="mt-5 mb-2">
-                            <h1 class="font-bold text-md">{{$user->name}}</h1>
+                            <h1 class="font-bold text-md">{{$user->profile->name}}</h1>
                         </div>
                         <div class="w-80">
-                            <p class="text-justify text-sm">{{$user->bio}}</p>
+                            <p class="text-justify text-sm">{{$user->profile->bio}}</p>
                         </div>
                         <div class="my-5 flex justify-start">
-                            <a href="">
+                            <a href="{{ route('feed-add') }}">
                                 <button class="btn w-32 h-10 text-sm text-white font-semibold bg-gray-800 rounded-lg">Buat Postingan</button>
                             </a>
                         </div>

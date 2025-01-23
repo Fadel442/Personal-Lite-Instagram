@@ -27,12 +27,15 @@ class AuthController extends Controller
         }
 
         $user = User::create([
-            'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
+        
         if ($user) {
+            $user->profile()->create([
+                'username' => $request->username,
+            ]);
+
             // Langsung login user setelah registrasi
             Auth::login($user); 
             return redirect()->intended('/profile'); // Redirect ke halaman profile

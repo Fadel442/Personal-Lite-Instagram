@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('feeds', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('file_type')->nullable();
-            $table->string('file_path')->nullable();
-            $table->text('caption');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Tambahkan ini
+            $table->string('username');
+            $table->string('name')->nullable();
+            $table->string('bio')->nullable();
+            $table->string('profile_img')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('feeds');
+        Schema::dropIfExists('profiles');
     }
 };

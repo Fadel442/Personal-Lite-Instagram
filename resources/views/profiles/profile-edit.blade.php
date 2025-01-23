@@ -18,25 +18,34 @@
                     <button class="w-32 h-10 bg-gray-800 rounded-xl text-white">Ubah Foto</button>
                 </div>
             </div>
+        {{-- Tambahkan form --}}
+        <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
             <div>
                 <div class="grid grid-rows-3 gap-2">
                     <div class="flex flex-col gap-2 w-full">
                         <label for="name" class="font-bold text-xl">Name</label>
-                        <input type="text" placeholder="Type here" class="input border-2 h-10 pl-2 border-black rounded-lg" />
+                        {{-- Ubah label menjadi input field --}}
+                        <input type="text" name="name" id="name" placeholder="Type here" class="input border-2 h-10 pl-2 border-black rounded-lg" value="{{ $user->profile->name }}">
                     </div>
                     <div class="flex flex-col gap-2 w-full">
                         <label for="username" class="font-bold text-xl">Username</label>
-                        <input type="text" placeholder="Type here" class="input border-2 h-10 pl-2 border-black rounded-lg" />
+                        {{-- Ubah label menjadi input field --}}
+                        <input type="text" name="username" id="username" placeholder="Type here" class="input border-2 h-10 pl-2 border-black rounded-lg" value="{{ $user->profile->username }}">
                     </div>
                     <div class="flex flex-col gap-2 w-full">
                         <label for="bio" class="font-bold text-xl">Bio</label>
-                        <textarea class="textarea input border-2 pl-2 border-black rounded-lg" placeholder="Type Here"></textarea>
+                        {{-- Ubah label menjadi input field --}}
+                        <textarea name="bio" id="bio" class="textarea input border-2 pl-2 border-black rounded-lg" placeholder="Type Here">{{ $user->profile->bio }}</textarea>
                     </div>
+                    {{-- Tambahkan input field untuk gambar --}}
                 </div>
                 <div class="flex justify-end">
-                    <button class="w-32 h-10 mt-5 bg-gray-800 rounded-xl text-white">Simpan</button>
+                    <button type="submit" class="w-32 h-10 mt-5 bg-gray-800 rounded-xl text-white">Simpan</button>
                 </div>
             </div>
+        </form>
         </div>
         <div class="w-80 pt-10 space-y-6 border-l-2 border-gray-300">
             {{-- <div class="mx-5">

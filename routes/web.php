@@ -18,6 +18,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/homepage', [FeedsController::class, 'index'])->name('homepage');
 Route::get('/profile', [ProfilesController::class, 'index'])->name('profile');
 Route::get('/profile/edit', [ProfilesController::class, 'editProfile'])->name('profile-edit');
+Route::put('/profile', [ProfilesController::class, 'updateProfile'])->name('profile.update'); 
+//
+Route::get('/feeds/create', [FeedsController::class, 'create'])->name('feed-add');
+Route::post('/feeds', [FeedsController::class, 'store'])->name('feed.store');
 
 
 
