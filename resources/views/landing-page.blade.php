@@ -7,8 +7,8 @@
         </div>
         
         <div class="navbar-end mx-5">
-            <a href="" class="mr-5 font-bold hover:underline">Login</a>
-            <a class="btn w-[100px] h-[2px] font-bold">Join Now</a>
+            <a href="{{ route ('login') }}" class="mr-5 font-bold hover:underline">Login</a>
+            <a href="{{ route ('register') }}" class="btn w-[100px] h-[2px] font-bold">Join Now</a>
         </div>
     </div>
 
