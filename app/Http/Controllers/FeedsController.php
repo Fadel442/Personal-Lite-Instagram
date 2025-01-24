@@ -25,7 +25,7 @@ class FeedsController extends Controller
     {
         $request->validate([
             'caption' => 'required|string',
-            'file' => 'required|file|mimes:jpeg,png,jpg,gif,mp4,mov,avi|max:10240', 
+            'file' => 'required|file|mimes:jpeg,png,jpg,mp4,mov|max:153600', 
         ]);
 
         $user = Auth::user();
@@ -47,9 +47,9 @@ class FeedsController extends Controller
             $feed->file_path = $upload_path . $fileName; 
     
           
-            if (in_array($file->getClientOriginalExtension(), ['jpg', 'jpeg', 'png', 'gif'])) {
+            if (in_array($file->getClientOriginalExtension(), ['jpg', 'jpeg', 'png'])) {
                 $feed->file_type = 'image';
-            } elseif (in_array($file->getClientOriginalExtension(), ['mp4', 'mov', 'avi'])) {
+            } elseif (in_array($file->getClientOriginalExtension(), ['mp4', 'mov'])) {
                 $feed->file_type = 'video';
             }
     

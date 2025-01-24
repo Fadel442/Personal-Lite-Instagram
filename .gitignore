@@ -5,6 +5,8 @@
 /public/storage
 /storage/*.key
 /storage/pail
+/public/feeds-content
+/public/profile-imgs
 /vendor
 .env
 .env.backup
@@ -21,5 +23,3 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
-/public/feeds-content
-/public/profile-imgs
