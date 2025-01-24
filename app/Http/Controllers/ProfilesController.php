@@ -60,8 +60,8 @@ class ProfilesController extends Controller
 
     public function updateProfileImg(Request $request)
     {
-        $user = Auth::user();
-        $profile = $user->profile;
+        $user = Auth::user(); 
+        $profile = $user->profile; 
 
         $request->validate([
             'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
@@ -70,18 +70,18 @@ class ProfilesController extends Controller
         if ($request->hasFile('profile_img')) {
             $imageLama = $profile->profile_img;
 
-            if (Storage::exists($imageLama)) {
+            if ($imageLama && Storage::exists($imageLama)) {
                 Storage::delete($imageLama);
             }
 
             $image = $request->file('profile_img');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $upload_path = 'profile_imgs/';
-            $image->move(public_path($upload_path), $imageName);
-
+            $imageName = time() . '.' . $image->getClientOriginalExtension(); // Beri nama unik
+            $upload_path = 'profile_imgs/'; // Direktori penyimpanan
+            $image->move(public_path($upload_path), $imageName); // Pindahkan ke folder publik
 
             $profile->profile_img = $upload_path . $imageName;
         }
+
         $profile->save();
 
         return redirect()->route('profile-edit')->with('success', 'Foto profil berhasil diperbarui!');

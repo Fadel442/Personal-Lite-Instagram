@@ -10,9 +10,9 @@ Route::get('/', function () {
     return view('landing-page');
 });
 
+Route::get('/login', [ProfilesController::class, 'login'])->name('login');
 Route::get('/register', [ProfilesController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
-Route::get('/login', [ProfilesController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 

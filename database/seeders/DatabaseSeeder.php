@@ -15,28 +15,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-       // Akun pertama
-        $user1 = User::create([
-            'email' => 'dummy1@gmail.com', 
+        $user = User::create([
+            'email' => 'dummy@gmail.com', 
             'password' => Hash::make('123456789'), 
         ]);
 
         Profiles::create([
-            'user_id' => $user1->id, 
-            'username' => 'Dummy_01', 
+            'user_id' => $user->id, 
+            'username' => 'fadel442',
         ]);
 
-        // Akun kedua
-        $user2 = User::create([
-            'email' => 'dummy2@gmail.com',
-            'password' => Hash::make('123456789'), 
-        ]);
-
-        Profiles::create([
-            'user_id' => $user2->id, 
-            'username' => 'f04_dlt', 
-            'name' => 'Fadel Muhammad',
-            'Bio' => '22 Tahun, berusaha menjadi orang yang berguna dan ingin menjadi menggapai mimpi sebagai developer yang hebat',
-        ]);
     }
 }
