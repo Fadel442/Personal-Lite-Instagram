@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
 
         Profiles::create([
             'user_id' => $user->id, 
-            'username' => 'fadel442',
+            'username' => 'dummys442',
         ]);
 
     }
