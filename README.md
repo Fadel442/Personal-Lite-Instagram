@@ -37,19 +37,26 @@ composer install
 npm install && npm run dev
 ```
 
-### 3. Configure Environment
+### 3. Install Dependencies (Tailwind and DaisyUi)
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init
+npm install daisyui
+```
+
+### 4. Configure Environment
 Copy the `.env.example` file and configure your database settings:
 ```bash
 cp .env.example .env
 php artisan key:generate
 ```
 
-### 4. Run Migrations and Seeding
+### 5. Run Migrations and Seeding
 ```bash
 php artisan migrate --seed
 ```
 
-### 5. Start the Server
+### 6. Start the Server
 ```bash
 php artisan serve
 ```
@@ -71,8 +78,18 @@ To test the application, use the following demo accounts:
 
 ### Initial Screen
 
-![Tampilan Awal](public/images/tampilan-awal.png)
+![alt text](https://github.com/Fadel442/Personal-Lite-Instagram/blob/main/public/images/ss1.PNG?raw=true)
+### Tampilan Awal saat menggunakan akun dummy
+![alt text](https://github.com/Fadel442/Personal-Lite-Instagram/blob/main/public/images/ss2.PNG?raw=true)
 
+### Halaman untuk melakukan update profile
+![alt text](https://github.com/Fadel442/Personal-Lite-Instagram/blob/main/public/images/ss3.PNG?raw=true)
+
+### Halaman profile setelah melakukan update
+![alt text](https://github.com/Fadel442/Personal-Lite-Instagram/blob/main/public/images/ss4.PNG?raw=true)
+
+### Halaman profile setelah menambahkan feed
+![alt text](https://github.com/Fadel442/Personal-Lite-Instagram/blob/main/public/images/ss5.PNG?raw=true)
 ---
 
 ## License
