@@ -69,9 +69,22 @@ To test the application, use the following demo accounts:
 
 ## Screenshots
 
-### Initial Screen
+### Halaman Awal
 
-![Tampilan Awal](public/images/tampilan-awal.png)
+![Tampilan Awal](https://ibb.co.com/zRT7Mtb)
+
+
+### Tampilan Awal saat menggunakan akun dummy
+
+
+### Halaman untuk melakukan update profile
+
+
+### Halaman profile setelah melakukan update
+
+
+### Halaman profile setelah menambahkan feed
+
 
 ---
 
