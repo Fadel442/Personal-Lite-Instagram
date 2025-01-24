@@ -71,7 +71,17 @@ To test the application, use the following demo accounts:
 
 ### Initial Screen
 
-![Tampilan Awal](public/images/tampilan-awal.png)
+![alt text](https://github.com/Fadel442/Personal-Lite-Instagram/blob/main/public/images/ss1.PNG?raw=true)
+### Tampilan Awal saat menggunakan akun dummy
+
+
+### Halaman untuk melakukan update profile
+
+
+### Halaman profile setelah melakukan update
+
+
+### Halaman profile setelah menambahkan feed
 
 ---
 
