@@ -11,7 +11,7 @@
             @endforeach
         </div>
         <div class="w-80">
-            <div class="fixed">dsdsd</div> 
+           
         </div>
     </div>
 @endsection
