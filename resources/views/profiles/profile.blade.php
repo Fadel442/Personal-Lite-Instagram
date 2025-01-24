@@ -8,7 +8,7 @@
         <div class="w-full p-6  mt-2 flex flex-col">
             <div class="flex ml-40">
                 <div class="w-40 h-40 bg-gray-400 rounded-full overflow-hidden border-2 flex items-center justify-center">
-                    <img src="{{asset($user->profile->profile_img)}}" alt="cc" class="h-full object-cover">
+                    <img src="{{ $user->profile->profile_img }}" alt="cc" class="h-full object-cover">
                 </div>
                 <div>
                     <div class="flex ml-28">
@@ -22,8 +22,10 @@
                             </a>
                         </div>
                         <div class="ml-5">
-                            <button class="btn w-28 h-5 text-sm text-white font-semibold bg-gray-800 rounded-lg">Lihat
-                                Arsip</button>
+                            <a href="{{ route('archive-index') }}">
+                                <button class="btn w-28 h-5 text-sm text-white font-semibold bg-gray-800 rounded-lg">Lihat
+                                    Arsip</button>
+                            </a>
                         </div>
                     </div>
                     <div class="ml-28">

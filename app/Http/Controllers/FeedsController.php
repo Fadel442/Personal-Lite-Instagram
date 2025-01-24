@@ -13,6 +13,7 @@ class FeedsController extends Controller
             return redirect('/login')->with('error', 'Anda harus login terlebih dahulu!');
         }
         $feeds = Feeds::with('user')->latest()->get(); 
+        
         return view('homepage', compact('feeds')); 
     }
 
@@ -37,16 +38,13 @@ class FeedsController extends Controller
         
             $upload_path = 'feeds-content/'; 
     
-         
             $file->move($upload_path, $fileName); 
-    
-         
+
             $feed = new Feeds();
             $feed->user_id = $user->id;
             $feed->caption = $request->caption;
             $feed->file_path = $upload_path . $fileName; 
     
-          
             if (in_array($file->getClientOriginalExtension(), ['jpg', 'jpeg', 'png'])) {
                 $feed->file_type = 'image';
             } elseif (in_array($file->getClientOriginalExtension(), ['mp4', 'mov'])) {

@@ -13,13 +13,13 @@ class ProfilesController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $profileFeed = Feeds::with('user.profile') 
+        $profileFeed = Feeds::with('user.profile')
             ->where('user_id', $user->id)
-                ->latest()->get();
-    
+            ->latest()->get();
+
         return view('profiles.profile', compact('user', 'profileFeed'));
     }
-    
+
 
     public function login()
     {
@@ -33,8 +33,8 @@ class ProfilesController extends Controller
 
     public function editProfile()
     {
-        $user = Auth::user(); 
-    return view('profiles.profile-edit', compact('user'));
+        $user = Auth::user();
+        return view('profiles.profile-edit', compact('user'));
     }
 
     public function updateProfile(Request $request)
@@ -46,10 +46,10 @@ class ProfilesController extends Controller
             'name' => 'nullable|string|max:20',
             'username' => 'required|string|max:20',
             'bio' => 'nullable|string|max:50',
-        
+
         ]);
 
-        
+
         $profile->name = $request->name;
         $profile->bio = $request->bio;
         $profile->username = $request->username;
@@ -79,7 +79,7 @@ class ProfilesController extends Controller
             $upload_path = 'profile_imgs/';
             $image->move(public_path($upload_path), $imageName);
 
-        
+
             $profile->profile_img = $upload_path . $imageName;
         }
         $profile->save();

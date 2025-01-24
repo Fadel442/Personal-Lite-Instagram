@@ -10,7 +10,7 @@
             <h1 class="text-2xl font-bold mb-4">Buat Feed Baru</h1>
 
 
-            <form action="{{ route('feed.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('feed-store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-4">
                     <label for="file" class="block text-gray-700 text-sm font-bold mb-2">Upload File (Image/Video):</label>
