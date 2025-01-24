@@ -15,10 +15,9 @@ Personal Lightgram is a simple Laravel-based application designed to manage user
 
 ## Features
 
-- User Authentication
-- Profile Image Upload
-- Profile Information Editing (Name, Username, Bio)
-- Seeded Demo Accounts
+- Login dan Register
+- Halaman Profile
+- Upload Feeds
 
 ---
 
@@ -64,16 +63,27 @@ To test the application, use the following demo accounts:
 
 | Username | Email             | Password   |
 |----------|-------------------|------------|
-| fadel    | dummy@gmail.com   | 123456789  |
-| dummy2   | dummy2@gmail.com  | 123456789  |
+| dummys442| dummy@gmail.com   | 123456789  |
 
 ---
 
 ## Screenshots
 
-### Initial Screen
+### Halaman Awal
 
-![Tampilan Awal](public/images/tampilan-awal.png)
+![Tampilan Awal](public/images/ss1.png)
+
+### Tampilan Awal saat menggunakan akun dummy
+(public/images/ss2.png)
+
+### Halaman untuk melakukan update profile
+(public/images/ss3.png)
+
+### Halaman profile setelah melakukan update
+(public/images/ss4.png)
+
+### Halaman profile setelah menambahkan feed
+(public/images/ss5.png)
 
 ---
 
