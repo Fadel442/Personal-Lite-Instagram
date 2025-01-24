@@ -73,16 +73,16 @@ To test the application, use the following demo accounts:
 
 ![alt text](https://github.com/Fadel442/Personal-Lite-Instagram/blob/main/public/images/ss1.PNG?raw=true)
 ### Tampilan Awal saat menggunakan akun dummy
-
+![alt text](https://github.com/Fadel442/Personal-Lite-Instagram/blob/main/public/images/ss2.PNG?raw=true)
 
 ### Halaman untuk melakukan update profile
-
+![alt text](https://github.com/Fadel442/Personal-Lite-Instagram/blob/main/public/images/ss3.PNG?raw=true)
 
 ### Halaman profile setelah melakukan update
-
+![alt text](https://github.com/Fadel442/Personal-Lite-Instagram/blob/main/public/images/ss4.PNG?raw=true)
 
 ### Halaman profile setelah menambahkan feed
-
+![alt text](https://github.com/Fadel442/Personal-Lite-Instagram/blob/main/public/images/ss5.PNG?raw=true)
 ---
 
 ## License
