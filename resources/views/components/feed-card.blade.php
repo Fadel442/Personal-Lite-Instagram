@@ -1,8 +1,8 @@
 <div class="w-[600px] p-4 bg-white rounded-lg shadow-lg border-2 border-black text-black">
     <div class="flex items-center mb-4">
         <div class="w-10 h-10 bg-gray-400 rounded-full">
-            @if ($feed->user->profile_img)
-                <img src="{{ asset('storage/' . $feed->user->profile_img) }}" alt="Profile Image" class="w-full h-full rounded-full object-cover">
+            @if ($feed->user->profile->profile_img)
+                <img src="{{ $feed->user->profile->profile_img }}" alt="Profile Image" class="w-full h-full rounded-full object-cover">
             @endif
         </div>
         <h3 class="ml-3 font-bold">{{ $feed->user->profile->username }}</h3> 
@@ -10,9 +10,9 @@
 
     <div class="w-full h-[300px] bg-gray-300 rounded mb-4">
         @if ($feed->file_type === 'image')
-            <img src="{{ asset($feed->file_path) }}" alt="Feed Image" class="w-full h-full rounded object-cover">  
+            <img src="{{ $feed->file_path }}" alt="Feed Image" class="w-full h-full rounded object-cover">  
         @elseif ($feed->file_type === 'video')
-            <video src="{{ asset($feed->file_path) }}" controls class="w-full h-full rounded object-cover"></video> 
+            <video src="{{ $feed->file_path }}" controls class="w-full h-full rounded object-cover"></video> 
         @endif
     </div>
 

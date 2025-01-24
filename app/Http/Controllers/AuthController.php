@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    // Handle user registration
+   
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -36,15 +36,15 @@ class AuthController extends Controller
                 'username' => $request->username,
             ]);
 
-            // Langsung login user setelah registrasi
+
             Auth::login($user); 
-            return redirect()->intended('/homepage'); // Redirect ke halaman profile
+            return redirect()->intended('/homepage'); 
         }
 
         return redirect()->back()->with('error', 'User creation failed');
     }
 
-    // Handle user login
+   
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -54,7 +54,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/profile'); // Redirect ke halaman profile
+            return redirect()->intended('/profile'); 
         }
 
         return back()->withErrors([
@@ -62,7 +62,7 @@ class AuthController extends Controller
         ]);
     }
 
-    // Handle user logout
+  
     public function logout(Request $request)
     {
         Auth::logout();
@@ -70,6 +70,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/'); // Redirect ke halaman utama setelah logout
+        return redirect('/'); 
     }
 }

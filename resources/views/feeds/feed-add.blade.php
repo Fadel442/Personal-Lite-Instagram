@@ -7,17 +7,8 @@
     </div>
     <div class="w-full p-5 pt-10 space-y-6 flex flex-col items-center">
         <div class="w-[600px] p-4 bg-white rounded-lg shadow-lg border-2 border-black text-black">
-            <h1 class="text-2xl font-bold mb-4">Create New Feed</h1>
+            <h1 class="text-2xl font-bold mb-4">Buat Feed Baru</h1>
 
-            @if ($errors->any())
-                <div class="alert alert-error">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
 
             <form action="{{ route('feed.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -32,13 +23,10 @@
                 </div>
 
                 <button type="submit" class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
-                    Create Feed
+                    Simpan
                 </button>
             </form>
         </div>
-    </div>
-    <div class="w-80">
-        <div class="fixed">dsdsd</div>
     </div>
 </div>
 @endsection

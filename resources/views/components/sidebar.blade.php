@@ -1,6 +1,5 @@
 <div class="flex flex-col h-screen w-64 pt-5 bg-black text-white fixed">
-    {{-- <div class="p-4 text-lg font-bold border-b border-gray-700">Lightgram</div> --}}
-    <a href="{{ route('homepage') }}" class="btn btn-ghost  text-lg font-bold flex justify-start"> LightGram</a>
+        <a href="{{ route('homepage') }}" class="btn btn-ghost  text-lg font-bold flex justify-start"> LightGram</a>
     <div class="border-b border-gray-700"></div>
     <nav class="mt-4 flex flex-col flex-1">
         <a href="{{ route('homepage') }}" class="block py-2 px-4 hover:bg-gray-700">Dashboard</a>

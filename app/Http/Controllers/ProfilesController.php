@@ -5,23 +5,21 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Feeds;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ProfilesController extends Controller
 {
     public function index()
-{
-    $user = Auth::user();
-    $profileFeed = DB::table('feeds')
-    ->where('user_id', $user->id)
-    ->where('file_type', 'image')
-    ->pluck('file_path');// Ambil path gambar dari feed
-    return view('profiles.profile', compact('user', 'profileFeed')); // Kirim data $profileFeed ke view
-}
+    {
+        $user = Auth::user();
+        $profileFeed = Feeds::with('user.profile') 
+            ->where('user_id', $user->id)
+                ->latest()->get();
+    
+        return view('profiles.profile', compact('user', 'profileFeed'));
+    }
+    
 
     public function login()
     {
@@ -35,7 +33,7 @@ class ProfilesController extends Controller
 
     public function editProfile()
     {
-        $user = Auth::user(); // Ambil data user yang sedang login
+        $user = Auth::user(); 
     return view('profiles.profile-edit', compact('user'));
     }
 
@@ -48,17 +46,10 @@ class ProfilesController extends Controller
             'name' => 'nullable|string|max:20',
             'username' => 'required|string|max:20',
             'bio' => 'nullable|string|max:50',
-            'profile_img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        
         ]);
 
-        if ($request->hasFile('profile_img')) {
-            // Hapus gambar lama jika ada
-            if ($profile->profile_img) {
-                Storage::disk('public')->delete($profile->profile_img);
-            }
-            $imagePath = $request->file('profile_img')->store('profile_imgs', 'public');
-            $profile->profile_img = $imagePath;
-        }
+        
         $profile->name = $request->name;
         $profile->bio = $request->bio;
         $profile->username = $request->username;
@@ -67,33 +58,32 @@ class ProfilesController extends Controller
         return redirect()->route('profile')->with('success', 'Profile updated successfully!');
     }
 
-    public function store(Request $request)
+    public function updateProfileImg(Request $request)
     {
+        $user = Auth::user();
+        $profile = $user->profile;
+
         $request->validate([
-            'caption' => 'required|string',
-            'file' => 'required|file|mimes:jpeg,png,jpg,gif,mp4,mov,avi|max:10240', // Validasi file
+            'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
-        $user = Auth::user();
-        $feed = new Feeds();
-        $feed->user_id = $user->id; 
-        $feed->caption = $request->caption;
+        if ($request->hasFile('profile_img')) {
+            $imageLama = $profile->profile_img;
 
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $filePath = $file->store('feeds', 'public'); // Simpan file di folder 'feeds'
-            $feed->file_path = $filePath;
-
-            // Tentukan file type
-            if (in_array($file->getClientOriginalExtension(), ['jpg', 'jpeg', 'png', 'gif'])) {
-                $feed->file_type = 'image';
-            } elseif (in_array($file->getClientOriginalExtension(), ['mp4', 'mov', 'avi'])) {
-                $feed->file_type = 'video';
+            if (Storage::exists($imageLama)) {
+                Storage::delete($imageLama);
             }
+
+            $image = $request->file('profile_img');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $upload_path = 'profile_imgs/';
+            $image->move(public_path($upload_path), $imageName);
+
+        
+            $profile->profile_img = $upload_path . $imageName;
         }
+        $profile->save();
 
-        $feed->save();
-
-        return redirect()->route('homepage')->with('success', 'Feed added successfully!');
+        return redirect()->route('profile-edit')->with('success', 'Foto profil berhasil diperbarui!');
     }
 }
