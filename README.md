@@ -69,21 +69,9 @@ To test the application, use the following demo accounts:
 
 ## Screenshots
 
-### Halaman Awal
+### Initial Screen
 
-![Tampilan Awal](public/images/ss1.png)
-
-### Tampilan Awal saat menggunakan akun dummy
-(public/images/ss2.png)
-
-### Halaman untuk melakukan update profile
-(public/images/ss3.png)
-
-### Halaman profile setelah melakukan update
-(public/images/ss4.png)
-
-### Halaman profile setelah menambahkan feed
-(public/images/ss5.png)
+![Tampilan Awal](public/images/tampilan-awal.png)
 
 ---
 
