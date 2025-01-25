@@ -37,26 +37,19 @@ composer install
 npm install && npm run dev
 ```
 
-### 3. Install Dependencies (Tailwind and DaisyUi)
-```bash
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init
-npm install daisyui
-```
-
-### 4. Configure Environment
+### 3. Configure Environment
 Copy the `.env.example` file and configure your database settings:
 ```bash
 cp .env.example .env
 php artisan key:generate
 ```
 
-### 5. Run Migrations and Seeding
+### 4. Run Migrations and Seeding
 ```bash
 php artisan migrate --seed
 ```
 
-### 6. Start the Server
+### 5. Start the Server
 ```bash
 php artisan serve
 ```
